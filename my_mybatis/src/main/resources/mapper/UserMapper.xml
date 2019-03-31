@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.my.batis.dao.UserMapper">
+    <select id="findAll" parameterType="int" resultType="com.my.batis.bean.User">
+        select id,name,age from user
+    </select>
+
+    <select id="getUser" parameterType="java.lang.Integer" resultType="com.my.batis.bean.User">
+        select id,name,age from user where id = #{id}
+    </select>
+
+    <insert id="insertUser" resultType="java.lang.Integer">
+        insert into user (name,age) values (#{name},#{age})
+    </insert>
+
+    <update id="updateByUser" resultType="java.lang.Integer">
+        update user set name = #{name} , age = #{age} where id = #{id}
+    </update>
+
+    <update id="deleteByUserById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        delete from user where id = #{id}
+    </update>
+</mapper>
